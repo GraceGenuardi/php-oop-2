@@ -10,12 +10,12 @@ class Prodotto {
   
 
     //-COSTRUTTORE
-    public function __construct($nome, $prezzo, $categoria, $descrizione) {
-      $this->nome = $nome;
-      $this->categoria = $prezzo;
-      $this->prezzo = $categoria;
-      $this->tipo = $descrizione;
-    }
+    public function __construct($nome, $categoria, $prezzo, $tipo) {
+        $this->nome = $nome;
+        $this->categoria = $categoria;
+        $this->prezzo = $prezzo;
+        $this->tipo = $tipo;
+      }
   
 
     
@@ -25,18 +25,20 @@ class Prodotto {
         return $this->nome;
       }
     
-      public function getPrezzo() {
-        return $this->prezzo;
-      }
-    
       public function getCategoria() {
         return $this->categoria;
       }
     
-      public function getDescrizione() {
-        return $this->Descrizione;
+      public function getPrezzo() {
+        return $this->prezzo;
       }
-  }
+    
+      public function getTipo() {
+        return $this->tipo;
+      }
+
+
+    }
 
 
 
@@ -56,16 +58,18 @@ class Categoria {
 
 //3. classe Shop
 class Shop {
-    private $prodotti = array();
-  
-    public function aggiungiProdotto(Prodotto $prodotto) {
-      $this->prodotti[] = $prodotto;
-    }
-  
-    public function getProdotti() {
-      return $this->prodotti;
-    }
+  private $prodotti = array();
+
+  public function aggiungiProdotto(Prodotto $prodotto) {
+    $this->prodotti[] = $prodotto;
   }
+
+  public function getProdotti() {
+    return $this->prodotti;
+  }
+
+
+}
 
 
 //4. Categorie Cani o Gatti
@@ -73,9 +77,9 @@ $cani = new Categoria("Cani");
 $gatti = new Categoria("Gatti");
 
 //5. tipi di prodotti "Giochino per gatti" - "Cuccetta per cani" - "Croccantini per gatti sterilizzati''
-$prodotto1 = new Prodotto("Cuccetta per cani", $cani, 50, "cuccia");
-$prodotto2 = new Prodotto("Giochino per gatti", $gatti, 5, "giochi");
-$prodotto3 = new Prodotto("Croccantini cucciolo", $cani, 10, "cibo");
+$prodotto1 = new Prodotto("Giochino per cani", $cani, 10, "gioco");
+$prodotto2 = new Prodotto("Crocchelle per gatti adulti", $gatti, 5, "cibo");
+$prodotto3 = new Prodotto("Cuccetta per cuccioli", $cani, 50, "cuccia");
 
 
 
@@ -106,9 +110,51 @@ $shop->aggiungiProdotto($prodotto3);
 </head>
 <body>
 
-  <div class="container">
+  <div class="container d-flex gap-3">
 
-  <!-- 7.CARD IN FOREACH -->
+  <!-- CARD -->
+  <div class="card w-30 mb-3 mt-5">
+  <div class="card-body">
+  <?php
+  // Stampiamo i dettagli dei prodotti
+foreach ($shop->getProdotti() as $prodotto) {
+    echo "<div>";
+    echo "<h3>" . $prodotto->getNome() . "</h3>";
+    echo "<p>Prezzo: " . $prodotto->getPrezzo() . " euro</p>";
+    echo "<p>Tipo: " . $prodotto->getTipo() . "</p>";
+    echo "</div>";
+  } ?>
+  </div>
+</div>
+
+<div class="card w-30 mt-5">
+  <div class="card-body">
+  <?php
+  // Stampiamo i dettagli dei prodotti
+foreach ($shop->getProdotti() as $prodotto) {
+    echo "<div>";
+    echo "<h3>" . $prodotto->getNome() . "</h3>";
+    echo "<p>Prezzo: " . $prodotto->getPrezzo() . " euro</p>";
+    echo "<p>Tipo: " . $prodotto->getTipo() . "</p>";
+    echo "</div>";
+  } ?>
+  </div>
+</div>
+
+
+<div class="card w-30 mt-5">
+  <div class="card-body">
+  <?php
+  // Stampiamo i dettagli dei prodotti
+foreach ($shop->getProdotti() as $prodotto) {
+    echo "<div>";
+    echo "<h3>" . $prodotto->getNome() . "</h3>";
+    echo "<p>Prezzo: " . $prodotto->getPrezzo() . " euro</p>";
+    echo "<p>Tipo: " . $prodotto->getTipo() . "</p>";
+    echo "</div>";
+  } ?>
+  </div>
+</div>
 
   </div>
     
