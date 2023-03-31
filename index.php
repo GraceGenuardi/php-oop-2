@@ -106,57 +106,68 @@ $shop->aggiungiProdotto($prodotto3);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/c5d4023dee.js" crossorigin="anonymous"></script>
     <title>Zoo E-commerce</title>
 </head>
-<body>
+<body class="bg-warning">
 
-  <div class="container d-flex gap-3">
 
-  <!-- CARD -->
-  <div class="card w-30 mb-3 mt-5">
-  <div class="card-body">
-  <?php
-  // Stampiamo i dettagli dei prodotti
-foreach ($shop->getProdotti() as $prodotto) {
-    echo "<div>";
-    echo "<h3>" . $prodotto->getNome() . "</h3>";
-    echo "<p>Prezzo: " . $prodotto->getPrezzo() . " euro</p>";
-    echo "<p>Tipo: " . $prodotto->getTipo() . "</p>";
-    echo "</div>";
-  } ?>
+<div class="col-12 d-flex justify-content-center list-unstyled">
+
+<ul class="list-group list-group-flush">
+    <li class="list-group-item bg-warning"><h1 class="text-center mt-5 text-primary">Scopri i nostri prodotti!</h1></li>
+    <li class="list-group-item mx-5 px-5 bg-warning"><a href="#" class="btn btn-primary mx-5"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"> Il tuo carrello!</i></a></li>
+</ul>
+  
+
+</div> 
+
+
+<!-- 7. Stampa prodotti nelle card -->
+<div class="container mt-5">
+
+  <div class="row mt-5">
+
+    <?php foreach ($shop->getProdotti() as $prodotto) { ?>
+
+      <div class="col-md-4 mt-5">
+
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><?php echo $prodotto->getNome(); ?></h5>
+            <p class="card-text"><?php echo $prodotto->getCategoria()->getNome(); ?></p>
+            <p class="card-text"><?php echo $prodotto->getPrezzo(); ?> euro</p>
+            <p class="card-text"><?php echo $prodotto->getTipo(); ?></p>
+            <a href="#" class="btn btn-primary"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a>
+          </div>
+        </div>
+      </div>
+    <?php } ?>
   </div>
 </div>
 
-<div class="card w-30 mt-5">
-  <div class="card-body">
-  <?php
-  // Stampiamo i dettagli dei prodotti
-foreach ($shop->getProdotti() as $prodotto) {
-    echo "<div>";
-    echo "<h3>" . $prodotto->getNome() . "</h3>";
-    echo "<p>Prezzo: " . $prodotto->getPrezzo() . " euro</p>";
-    echo "<p>Tipo: " . $prodotto->getTipo() . "</p>";
-    echo "</div>";
-  } ?>
+
+<div class="container mt-5">
+
+  <div class="row mt-5">
+
+    <?php foreach ($shop->getProdotti() as $prodotto) { ?>
+
+      <div class="col-md-4 mt-5">
+
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><?php echo $prodotto->getNome(); ?></h5>
+            <p class="card-text"><?php echo $prodotto->getCategoria()->getNome(); ?></p>
+            <p class="card-text"><?php echo $prodotto->getPrezzo(); ?> euro</p>
+            <p class="card-text"><?php echo $prodotto->getTipo(); ?></p>
+            <a href="#" class="btn btn-primary"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></a>
+          </div>
+        </div>
+      </div>
+    <?php } ?>
   </div>
 </div>
-
-
-<div class="card w-30 mt-5">
-  <div class="card-body">
-  <?php
-  // Stampiamo i dettagli dei prodotti
-foreach ($shop->getProdotti() as $prodotto) {
-    echo "<div>";
-    echo "<h3>" . $prodotto->getNome() . "</h3>";
-    echo "<p>Prezzo: " . $prodotto->getPrezzo() . " euro</p>";
-    echo "<p>Tipo: " . $prodotto->getTipo() . "</p>";
-    echo "</div>";
-  } ?>
-  </div>
-</div>
-
-  </div>
     
 </body>
 </html>
