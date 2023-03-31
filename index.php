@@ -17,12 +17,55 @@ class Prodotto {
       $this->tipo = $descrizione;
     }
   
+
+    
+
+    //ELENCO GET
+    public function getNome() {
+        return $this->nome;
+      }
+    
+      public function getPrezzo() {
+        return $this->prezzo;
+      }
+    
+      public function getCategoria() {
+        return $this->categoria;
+      }
+    
+      public function getDescrizione() {
+        return $this->Descrizione;
+      }
   }
 
-//2. classe Categoria
+
+
+//2. classe Categoria (uso private)
+class Categoria {
+    private $nome;
+  
+    public function __construct($nome) {
+      $this->nome = $nome;
+    }
+  
+    public function getNome() {
+      return $this->nome;
+    }
+  }
 
 
 //3. classe Shop
+class Shop {
+    private $prodotti = array();
+  
+    public function aggiungiProdotto(Prodotto $prodotto) {
+      $this->prodotti[] = $prodotto;
+    }
+  
+    public function getProdotti() {
+      return $this->prodotti;
+    }
+  }
 
 
 //4. Categorie Cani o Gatti
