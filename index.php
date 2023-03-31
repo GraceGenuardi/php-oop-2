@@ -69,13 +69,23 @@ class Shop {
 
 
 //4. Categorie Cani o Gatti
-
+$cani = new Categoria("Cani");
+$gatti = new Categoria("Gatti");
 
 //5. tipi di prodotti "Giochino per gatti" - "Cuccetta per cani" - "Croccantini per gatti sterilizzati''
+$prodotto1 = new Prodotto("Cuccetta per cani", $cani, 50, "cuccia");
+$prodotto2 = new Prodotto("Giochino per gatti", $gatti, 5, "giochi");
+$prodotto3 = new Prodotto("Croccantini cucciolo", $cani, 10, "cibo");
+
 
 
 //6. shop
+$shop = new Shop();
 
+   //aggiungi prodotti
+$shop->aggiungiProdotto($prodotto1);
+$shop->aggiungiProdotto($prodotto2);
+$shop->aggiungiProdotto($prodotto3);
 ?>
 
 
