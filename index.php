@@ -2,7 +2,22 @@
 <?php
 
 //1.classe Prodotto
+class Prodotto {
+    private $nome;
+    private $categoria;
+    private $prezzo;
+    private $tipo;
+  
 
+    //-COSTRUTTORE
+    public function __construct($nome, $prezzo, $categoria, $descrizione) {
+      $this->nome = $nome;
+      $this->categoria = $prezzo;
+      $this->prezzo = $categoria;
+      $this->tipo = $descrizione;
+    }
+  
+  }
 
 //2. classe Categoria
 
