@@ -1,6 +1,14 @@
 
 <?php
 
+
+//ESERCIZIO 2
+//1. trait Spedizione 
+
+//2. classe ExceptionPersonalizzata
+
+//3. classe Prodotto che implementa il trait 
+
 //1.classe Prodotto
 class Prodotto {
     private $nome;
