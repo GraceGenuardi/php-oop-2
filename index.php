@@ -66,28 +66,35 @@ class Categoria {
 }
 
 //5. classe Shop
+//5. classe Shop
 class Shop {
-    private $prodotti = array();
-
-    public function aggiungiProdotto(Prodotto $prodotto) {
-        $this->prodotti[] = $prodotto;
-    }
-
-    public function getProdotti() {
-        return $this->prodotti;
-    }
-
-
-    //2. Aggiungi Exception (Comprare almeno due prodotti)
-
-    public function getQuantitaProdotti() {
+  private $prodotti = array();
+  private $quantitaProdotti = 0; //inserisco una variabile per tenere traccia della quantità di prodotti
+  
+  //2. Aggiungi Exception (Comprare almeno due prodotti)
+  public function aggiungiProdotto(Prodotto $prodotto) {
+      //controllo che ci sia almeno un altro prodotto oltre a quello passato in ingresso
+      if($this->getQuantitaProdotti() == 1) {
+          throw new InvalidArgumentException('Aggiungi almeno due prodotti al carrello per procedere all\'acquisto.');
+      }
+  
+      $this->prodotti[] = $prodotto;
+      $this->quantitaProdotti++;
+  }
+  
+  public function getProdotti() {
+      return $this->prodotti;
+  }
+  
+  //2. controlla quantità prodotti (Comprare almeno due prodotti)
+  public function getQuantitaProdotti() {
       return $this->quantitaProdotti;
   }
   
   public function setQuantitaProdotti($qta) {
       $this->quantitaProdotti = $qta;
   }
-}
+  }
 
 //6. Categorie Cani o Gatti
 $cani = new Categoria("Cani");
@@ -108,10 +115,16 @@ $prodotto3->setCostoSpedizione(5); //setto il costo della spedizione per il prod
 $shop = new Shop();
 
 //aggiungi prodotti
+try {
+//aggiungo solo un prodotto
 $shop->aggiungiProdotto($prodotto1);
+} catch (InvalidArgumentException $e) {
+echo "Errore: " . $e->getMessage();
+}
+
+//aggiungo almeno due prodotti
 $shop->aggiungiProdotto($prodotto2);
 $shop->aggiungiProdotto($prodotto3);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
