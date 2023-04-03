@@ -16,7 +16,7 @@ trait Spedizione {
     }
 }
 
-//2. classe ExceptionPersonalizzata
+
 
 
 //3. classe Prodotto che implementa il trait Spedizione
@@ -76,6 +76,17 @@ class Shop {
     public function getProdotti() {
         return $this->prodotti;
     }
+
+
+    //2. Aggiungi Exception (Comprare almeno due prodotti)
+
+    public function getQuantitaProdotti() {
+      return $this->quantitaProdotti;
+  }
+  
+  public function setQuantitaProdotti($qta) {
+      $this->quantitaProdotti = $qta;
+  }
 }
 
 //6. Categorie Cani o Gatti
